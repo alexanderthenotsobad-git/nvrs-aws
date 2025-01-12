@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadForFrontendFiles",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::nvrs-frontend/*"
+        },
+        {
+            "Sid": "AllowFullAccessForAuthenticatedUsers",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::586794475413:user/nvrs-admin"
+            },
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::nvrs-frontend/*"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "CORSRules": [
+        {
+            "AllowedOrigins": [
+                "https://alexanderthenotsobad.us",
+                "http://localhost:5000"
+            ],
+            "AllowedMethods": [
+                "GET",
+                "PUT",
+                "POST",
+                "DELETE"
+            ],
+            "AllowedHeaders": [
+                "*"
+            ],
+            "ExposeHeaders": [
+                "ETag"
+            ],
+            "MaxAgeSeconds": 3000
+        }
+    ]
+}

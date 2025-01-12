@@ -1,0 +1,13 @@
+.
+├── .gitignore
+├── backend
+│   ├── .env
+│   ├── bucket-policy.json
+│   ├── cors.json
+│   ├── package-lock.json
+│   ├── package.json
+│   └── s3-config.js
+├── frontend
+└── project-structure.txt
+
+2 directories, 8 files
