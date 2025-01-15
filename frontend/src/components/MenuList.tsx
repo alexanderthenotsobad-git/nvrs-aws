@@ -21,11 +21,12 @@ async function getAllItems(): Promise<MenuItem[]> {
         const data = await response.json();
         const items = Array.isArray(data.item) ? data.item.flat() : [];
         // Filter out invalid items
-        return items.filter(item =>
-            item &&
-            item.item_name &&
-            item.item_desc &&
-            (item.price !== undefined && item.price !== null)
+        return items.filter((item: unknown): item is MenuItem =>
+            !!item &&
+            typeof item === 'object' &&
+            'item_name' in item &&
+            'item_desc' in item &&
+            'price' in item
         );
     } catch (error) {
         console.error('Error fetching menu items:', error);
@@ -44,7 +45,6 @@ export default function MenuList() {
                 setLoading(true);
                 const data = await getAllItems();
                 console.log('Raw API response:', data);
-                // Log each item for debugging
                 data.forEach((item, index) => {
                     console.log(`Item ${index}:`, {
                         name: item.item_name,
